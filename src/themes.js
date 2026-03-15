@@ -41,9 +41,57 @@ const darkTheme = {
 	},
 }
 
+const catppuccinLatte = {
+	...lightTheme,
+	...{
+		body: '#eff1f5', // base
+		text: '#4c4f69', // text
+		link: '#1e66f5', // blue
+		readentry: '#6c6f85', // subtext0
+		errorentry: '#d20f39', // red
+		hoverbg: '#bcc0cc', // surface1
+		selectbg: '#acb0be', // surface2
+		feedbubble: '#7287fd', // accent (lavender)
+		categorybubble: '#7287fd', // accent (lavender)
+		preview: '#5c5f77', // subtext1
+		unreaddot: '#7287fd', // accent (lavender)
+		listheaderbg: '#bcc0cc', // surface1
+		itemheaderbg: '#bcc0cc', // surface1
+		buttonbg: '#ccd0da', // surface0
+		buttonfg: '#7287fd', // accent (lavender)
+		dropdownbg: '#ccd0da', // surface0
+		dropdownfg: '#7287fd', // accent (lavender)
+	},
+}
+
+const catppuccinMocha = {
+	...darkTheme,
+	...{
+		body: '#1e1e2e', // base
+		text: '#cdd6f4', // text
+		link: '#89b4fa', // blue
+		readentry: '#a6adc8', // subtext0
+		errorentry: '#f38ba8', // red
+		hoverbg: '#45475a', // surface1
+		selectbg: '#585b70', // surface2
+		feedbubble: '#b4befe', // accent (lavender)
+		categorybubble: '#b4befe', // accent (lavender)
+		preview: '#bac2de', // subtext1
+		unreaddot: '#b4befe', // accent (lavender)
+		listheaderbg: '#45475a', // surface1
+		itemheaderbg: '#45475a', // surface1
+		buttonbg: '#313244', // surface0
+		buttonfg: '#b4befe', // accent (lavender)
+		dropdownbg: '#313244', // surface0
+		dropdownfg: '#b4befe', // accent (lavender)
+	},
+}
+
 export const themes = {
 	light: lightTheme,
 	dark: darkTheme,
+	catppuccinLatte: catppuccinLatte,
+	catppuccinMocha: catppuccinMocha,
 }
 
 export function listThemeKeys() {
