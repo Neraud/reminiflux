@@ -9,7 +9,7 @@ import { useHotkeys } from 'react-hotkeys-hook'
 import { apiCall, createFeedIcon } from './lib/util'
 import { GlobalStyles } from './globalStyles'
 import { ThemeProvider } from 'styled-components'
-import { lightTheme, darkTheme } from './themes'
+import { getTheme } from './themes'
 import ClickNHold from 'react-click-n-hold'
 
 import './Reminiflux.css'
@@ -44,12 +44,6 @@ const sum = (arr) => {
 		return a + (b['unreads'] || 0)
 	}, 0)
 }
-
-const darkModeMediaQuery = window.matchMedia
-	? window.matchMedia('(prefers-color-scheme: dark)').matches
-		? darkTheme
-		: lightTheme
-	: lightTheme
 
 function Reminiflux() {
 	const [theme, setTheme] = useState(localStorage.getItem('theme') || 'auto')
@@ -268,15 +262,7 @@ function Reminiflux() {
 	)
 
 	return (
-		<ThemeProvider
-			theme={
-				theme === 'auto'
-					? darkModeMediaQuery
-					: theme === 'light'
-					? lightTheme
-					: darkTheme
-			}
-		>
+		<ThemeProvider theme={getTheme(theme)}>
 			<GlobalStyles />
 			{helpOpen ? (
 				<KeyHelpModal onClose={() => setHelpOpen(false)} />

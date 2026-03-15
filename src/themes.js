@@ -1,4 +1,4 @@
-export const lightTheme = {
+const lightTheme = {
 	body: '#fefefe',
 	text: '#363537',
 	link: 'blue',
@@ -21,7 +21,7 @@ export const lightTheme = {
 	errorfg: 'inherit',
 }
 
-export const darkTheme = {
+const darkTheme = {
 	...lightTheme,
 	...{
 		body: '#363537',
@@ -39,4 +39,27 @@ export const darkTheme = {
 		modalbg: '#565557',
 		errorbg: 'darkred',
 	},
+}
+
+export const themes = {
+	light: lightTheme,
+	dark: darkTheme,
+}
+
+export function listThemeKeys() {
+	return Object.keys(themes)
+}
+
+export function getTheme(themeKey) {
+	if (!(themeKey in themes)) themeKey = 'auto'
+
+	if (themeKey === 'auto') {
+		themeKey = window.matchMedia
+			? window.matchMedia('(prefers-color-scheme: dark)').matches
+				? 'dark'
+				: 'light'
+			: 'light'
+	}
+
+	return themes[themeKey]
 }

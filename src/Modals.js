@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal'
 import styled from 'styled-components'
+import { listThemeKeys } from './themes'
 import { useHotkeys } from 'react-hotkeys-hook'
 import preval from 'preval.macro'
 import dayjs from 'dayjs'
@@ -244,8 +245,11 @@ export function SettingsModal(props) {
 						onChange={(e) => props.themeSetter(e.target.value)}
 					>
 						<option value='auto'>auto</option>
-						<option value='light'>light</option>
-						<option value='dark'>dark</option>
+						{listThemeKeys().map((t) => (
+							<option value={t} key={t}>
+								{t}
+							</option>
+						))}
 					</select>
 				</p>
 				<p>
