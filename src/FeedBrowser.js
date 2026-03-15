@@ -191,7 +191,7 @@ function FeedBrowser(props) {
 				}}
 				title='Toggle showing all/unread feeds'
 			>
-				{hideRead ? '⚪' : '⚫'}
+				{hideRead ? '○' : '●'}
 			</FloatingButton>
 			{feeds.map((item) => (
 				<div key={item.fetch_url || item.id}>
